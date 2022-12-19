@@ -1,0 +1,17 @@
+.header {
+  margin-bottom: 1rem;
+  background-color: #2ecc71;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+
+.container {
+  padding: 0 1rem;
+  max-width: 800px;
+  margin-inline: auto;
+}
+
+.title {
+  padding: 1rem 0;
+  display: block;
+  font-size: 1.25rem;
+}

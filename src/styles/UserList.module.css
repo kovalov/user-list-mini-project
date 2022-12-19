@@ -1,0 +1,28 @@
+.listItem {
+  padding: 1rem;
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 0;
+  border-bottom: 1px solid #95a5a6;
+}
+
+.value:not(:last-child) {
+  margin-bottom: 0.5rem;
+}
+
+.controls {
+  display: flex;
+  gap: 1rem;
+}
+
+.button {
+  border: 0;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.button:hover {
+  color: #2ecc71;
+}
