@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "db": "json-server --watch ./src/data/db.json"
+    "db": "json-server --watch ./src/data/db.json",
+    "server": "vite & json-server --watch ./src/data/db.json"
   },
   "dependencies": {
     "json-server": "^0.17.1",
