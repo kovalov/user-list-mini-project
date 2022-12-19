@@ -28,7 +28,7 @@ export const UserList = ({
             <li className={styles.value}>{`${item.first} ${item.last}`}</li>
             <li className={styles.value}>{item.email}</li>
             <li className={styles.value}>{item.dob}</li>
-            <li className={styles.value}>{item.tel}</li>
+            <li className={styles.value}>{item.phone}</li>
           </ul>
           <div className={styles.controls}>
             <button
