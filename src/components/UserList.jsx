@@ -23,7 +23,6 @@ export const UserList = ({
     <ul className={styles.list}>
       {users.map((item) => (
         <li key={item.id} className={styles.listItem}>
-          {/* <span className={styles.value}>{item.first}</span> */}
           <ul className={styles.innerList}>
             <li className={styles.value}>{`${item.first} ${item.last}`}</li>
             <li className={styles.value}>{item.email}</li>
