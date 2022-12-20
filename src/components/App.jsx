@@ -24,17 +24,17 @@ export const App = () => {
   });
   const [isModalShown, setIsModalShown] = useState(false);
 
-  const foundUsers = users.filter(
-    ({ first, last }) =>
-      first.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      last.toLowerCase().includes(searchQuery.toLowerCase())
-  );
+  // const foundUsers = users.filter(
+  //   ({ first, last }) =>
+  //     first.toLowerCase().includes(searchQuery.toLowerCase()) ||
+  //     last.toLowerCase().includes(searchQuery.toLowerCase())
+  // );
 
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage] = useState(3);
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentItems = foundUsers.slice(indexOfFirstItem, indexOfLastItem);
+  const currentItems = users.slice(indexOfFirstItem, indexOfLastItem);
   const numberOfPages = Math.ceil(users.length / itemsPerPage);
 
   const url = "http://localhost:3000/users";
@@ -51,6 +51,12 @@ export const App = () => {
     getUsers();
   }, []);
 
+  const foundUsers = currentItems.filter(
+    ({ first, last }) =>
+      first.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      last.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
   return (
     <div className="App">
       {isLoaded && (
@@ -59,7 +65,7 @@ export const App = () => {
           <PageContent>
             <Search setSearchQuery={setSearchQuery} />
             <UserList
-              users={currentItems}
+              users={foundUsers}
               setUsers={setUsers}
               deleteUser={deleteItem}
               setIsModalShown={setIsModalShown}
