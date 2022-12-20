@@ -25,7 +25,7 @@ export const App = () => {
 
   const [isModalShown, setIsModalShown] = useState(false);
 
-  const url = "http://localhost:3000/users";
+  const url = "https://flax-miniature-cook.glitch.me/users";
 
   const { isLoaded, getAllItems, addItem, deleteItem, updateItem } =
     useFetch(url);
