@@ -1,7 +1,19 @@
 .container {
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
-.content {
+.button {
+  border: 0;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.button:hover {
+  color: #2ecc71;
+}
+
+.current {
+  padding: 1rem;
 }

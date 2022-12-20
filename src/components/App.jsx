@@ -31,7 +31,7 @@ export const App = () => {
   );
 
   const [currentPage, setCurrentPage] = useState(1);
-  const [itemsPerPage] = useState(1);
+  const [itemsPerPage] = useState(3);
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   const currentItems = foundUsers.slice(indexOfFirstItem, indexOfLastItem);

@@ -16,6 +16,30 @@
       "dob": "2022-12-07",
       "email": "burger@mail.com",
       "phone": "12"
+    },
+    {
+      "id": 3,
+      "first": "tom",
+      "last": "ford",
+      "dob": "2022-12-07",
+      "email": "ford@mail.com",
+      "phone": "12412412"
+    },
+    {
+      "id": 4,
+      "first": "kate",
+      "last": "blake",
+      "dob": "2022-12-07",
+      "email": "kate@mail.com",
+      "phone": "12"
+    },
+    {
+      "id": 5,
+      "first": "victor",
+      "last": "freeman",
+      "dob": "2022-12-07",
+      "email": "victor@mail.com",
+      "phone": "125"
     }
   ]
 }

@@ -1,6 +1,5 @@
 .button {
   margin: 1rem;
-  /* padding: 0.5rem; */
   position: fixed;
   width: 2.5rem;
   height: 2.5rem;
@@ -10,6 +9,7 @@
   border-radius: 50%;
   background-color: #2ecc71;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  cursor: pointer;
 }
 
 .button::before {

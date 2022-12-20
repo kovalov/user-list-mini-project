@@ -1,4 +1,5 @@
 import styles from "../styles/UserList.module.css";
+import { Pagination } from "./Pagination";
 
 export const UserList = ({
   users,
@@ -21,14 +22,6 @@ export const UserList = ({
     setIsModalShown(true);
     setSelectedUserId(id);
     setIsAdd(false);
-  };
-
-  const nextPage = () => {
-    if (currentPage !== numberOfPages) setCurrentPage(currentPage + 1);
-  };
-
-  const prevPage = () => {
-    if (currentPage !== 1) setCurrentPage(currentPage - 1);
   };
 
   return users.length ? (
@@ -60,15 +53,11 @@ export const UserList = ({
         ))}
       </ul>
       {!searchQuery && (
-        <div className="">
-          <button onClick={prevPage} className="">
-            Prev
-          </button>
-          <span className="">{currentPage}</span>
-          <button onClick={nextPage} className="">
-            Next
-          </button>
-        </div>
+        <Pagination
+          numberOfPages={numberOfPages}
+          currentPage={currentPage}
+          setCurrentPage={setCurrentPage}
+        />
       )}
     </>
   ) : (
