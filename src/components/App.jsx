@@ -24,12 +24,6 @@ export const App = () => {
   });
   const [isModalShown, setIsModalShown] = useState(false);
 
-  // const foundUsers = users.filter(
-  //   ({ first, last }) =>
-  //     first.toLowerCase().includes(searchQuery.toLowerCase()) ||
-  //     last.toLowerCase().includes(searchQuery.toLowerCase())
-  // );
-
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage] = useState(3);
   const indexOfLastItem = currentPage * itemsPerPage;
