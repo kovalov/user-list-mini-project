@@ -22,8 +22,13 @@ export const App = () => {
     email: "",
     phone: "",
   });
-
   const [isModalShown, setIsModalShown] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage] = useState(3);
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentItems = users.slice(indexOfFirstItem, indexOfLastItem);
+  const numberOfPages = Math.ceil(users.length / itemsPerPage);
 
   const url = "https://flax-miniature-cook.glitch.me/users";
 
@@ -39,7 +44,7 @@ export const App = () => {
     getUsers();
   }, []);
 
-  const foundUsers = users.filter(
+  const foundUsers = currentItems.filter(
     ({ first, last }) =>
       first.toLowerCase().includes(searchQuery.toLowerCase()) ||
       last.toLowerCase().includes(searchQuery.toLowerCase())
@@ -59,6 +64,10 @@ export const App = () => {
               setIsModalShown={setIsModalShown}
               setSelectedUserId={setSelectedUserId}
               setIsAdd={setIsAdd}
+              searchQuery={searchQuery}
+              numberOfPages={numberOfPages}
+              currentPage={currentPage}
+              setCurrentPage={setCurrentPage}
             />
           </PageContent>
           <Modal
