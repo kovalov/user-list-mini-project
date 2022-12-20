@@ -22,8 +22,20 @@ export const App = () => {
     email: "",
     phone: "",
   });
-
   const [isModalShown, setIsModalShown] = useState(false);
+
+  const foundUsers = users.filter(
+    ({ first, last }) =>
+      first.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      last.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage] = useState(1);
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentItems = foundUsers.slice(indexOfFirstItem, indexOfLastItem);
+  const numberOfPages = Math.ceil(users.length / itemsPerPage);
 
   const url = "http://localhost:3000/users";
 
@@ -39,12 +51,6 @@ export const App = () => {
     getUsers();
   }, []);
 
-  const foundUsers = users.filter(
-    ({ first, last }) =>
-      first.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      last.toLowerCase().includes(searchQuery.toLowerCase())
-  );
-
   return (
     <div className="App">
       {isLoaded && (
@@ -53,12 +59,16 @@ export const App = () => {
           <PageContent>
             <Search setSearchQuery={setSearchQuery} />
             <UserList
-              users={foundUsers}
+              users={currentItems}
               setUsers={setUsers}
               deleteUser={deleteItem}
               setIsModalShown={setIsModalShown}
               setSelectedUserId={setSelectedUserId}
               setIsAdd={setIsAdd}
+              searchQuery={searchQuery}
+              numberOfPages={numberOfPages}
+              currentPage={currentPage}
+              setCurrentPage={setCurrentPage}
             />
           </PageContent>
           <Modal
