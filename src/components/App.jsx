@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useFetch } from "../hooks/useFetch";
 
+import { Loader } from "./Loader";
 import { Header } from "./Header";
 import { PageContent } from "./PageContent";
 import { Search } from "./Search";
@@ -52,7 +53,9 @@ export const App = () => {
 
   return (
     <div className="App">
-      {isLoaded && (
+      {!isLoaded ? (
+        <Loader />
+      ) : (
         <>
           <Header title="Mini Project" />
           <PageContent>
